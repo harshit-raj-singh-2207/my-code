@@ -1,0 +1,253 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: black;
+
+}
+
+header{
+   display: flex;
+   align-items: center;
+   justify-content:space-between;
+    color: white;
+    padding: 15px 40px;
+
+
+}
+header a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: white;
+    font-size: 12px;
+
+
+}
+.logo{
+    color: rgb(146, 0, 25);
+    font-size: 25px;
+    font-weight: bold;
+}
+header button{
+    padding: 5px 10px;
+    background-color: rgb(146, 0, 25);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+
+
+}
+.hero{
+    /* background-color: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 80px;
+}
+.hero-text{
+    width: 50%;
+}
+.hero-text p {
+    margin: 15px 0;
+    color: #555;
+
+}
+
+.hero-text h1{
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 1;
+}
+.inner-text{
+    width: 380px;
+    margin-top: 30px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    line-height: 10PX;
+}
+.inner-text h3{
+       font-size: 25px;
+       color:  rgb(146, 0, 25);
+       font-weight: bolder;
+}
+.inner-text p{
+    font-size: 10px;
+    font-weight: 600;
+}
+.hero button{
+    padding: 10px 25px;
+    background-color: rgb(146, 0, 25);
+    color: white;
+    border: none;
+    margin: 5px 0px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.hero-image img{
+    width: 400px;
+}
+
+.hero1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    color: #555;
+}
+.hero1 h1{
+    padding: 5px;
+    font-size:35px;
+    color: white;
+}
+.hero1 button{
+    font-weight: 700;
+    padding: 5px 15px;
+    margin-top: 40px;
+    font-size: 12px;
+    background-color: rgb(146,0,25);
+    color: white;
+    border: none;
+}
+
+
+/* -------------hero2------------ */
+
+
+.hero2{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px 40px; 
+   flex-wrap: wrap;
+}
+
+.big-card{
+    height:370px;
+    width:250px;
+    line-height:20px;
+    color: white;
+    
+}
+.big-card button{
+    margin: 10px;
+    background-color: rgb(146,0,25) ;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+.big-card h5{
+    color: rgb(146, 0, 25);
+    font-weight: 600;
+}
+.big-card h3{
+    color: white;
+    margin-left: 10px;
+    font-weight: 800;
+}
+.big-card h5{
+    margin-left: 10px;
+}
+
+.big-card p{
+    color: #555;
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+
+.card{
+    height: 250px;
+    width: 100%;
+     
+}
+
+#card1{
+    background-image:url(https://i.pinimg.com/736x/dd/a6/2a/dda62a139cf181ac45236d3e9203cd8a.jpg);
+    background-size: cover;
+}
+
+#card2{
+    background-image: url(https://i.pinimg.com/736x/af/89/88/af8988f60161559ee2b919376dd42077.jpg);
+    background-size: cover;
+}
+#card3{
+    background-image: url(https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lybCUyMG1vZGVsfGVufDB8fDB8fHww&fm=jpg&q=60&w=3000);
+    background-size: cover;
+}
+#card4{
+    background-image: url(https://i.pinimg.com/1200x/38/a9/19/38a9192dbcaef31b9655734e9b184e83.jpg);
+    background-size: cover;
+}
+#card5{
+    background-image: url(https://www.frankshop.in/cdn/shop/files/DenimBlue.png?v=1740667826);
+    background-size: cover;
+}
+
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 70px;
+}
+.section-text{
+    width: 50%;
+     
+}
+.section-text h1{
+    line-height: 1.5;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+
+.section-text p{
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 12px;
+    color: #555;
+}
+.section-img img{
+    width: 400px;
+}
+.inner-section{
+    margin-top: 20px;
+    color: white;
+    width: 550px;
+    height:150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-left: 2px;
+}
+.box{
+    width: 200px;
+    height: 150px;
+    border: 1px solid #555;
+}
+.section-text button{
+    padding: 10px 25px;
+    background-color: rgb(146, 0, 25);
+    border:none;
+    border-radius: 2px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 20px;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Landing Page</title>
+  <style>
+    /* --- CODER-FRIENDLY THEME --- */
+    :root {
+      --bg-dark: #0a0f1f;
+      --bg-light: #131b2e;
+      --accent: #00eaff;
+      --accent2: #8f00ff;
+      --text: #e3f4ff;
+      --card: #101726;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Fira Code", "Poppins", monospace;
+      background: radial-gradient(circle at top left, var(--bg-light), var(--bg-dark));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 110px 20px;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      animation: fadeInDown 1.8s ease-out;
+      letter-spacing: 2px;
+    }
+
+    .typewriter {
+      font-size: 1.4rem;
+      font-family: "Fira Code", monospace;
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards,
+                 blink 0.7s infinite;
+      margin-top: 10px;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 32px;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: "Fira Code", monospace;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    section p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    /* Card-like subtle glow when visible */
+    .visible {
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
+      padding: 50px 20px;
+      transition: 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Landing Page</h1>
+    <div class="typewriter">Creative animations that engage users!</div>
+    <a href="#services" class="btn">Explore More</a>
+  </header>
+
+  <section id="services">
+    <h2>🚀 Services</h2>
+    <p>We provide modern web design with interactive animations.</p>
+  </section>
+
+  <section id="about">
+    <h2>💡 About Us</h2>
+    <p>Blending creativity and technology for stunning user experiences.</p>
+  </section>
+
+  <section id="contact">
+    <h2>📞 Contact</h2>
+    <p>Get in touch for your next project!</p>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

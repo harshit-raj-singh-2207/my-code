@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkillSpark - Learn Skills That Matter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: #020617;
+      --border: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #ef4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 50%);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ---------- Header / Navbar ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(30, 64, 175, 0.4);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 20%, #bfdbfe, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b1120;
+      font-size: 0.9rem;
+    }
+
+    .logo span {
+      background: linear-gradient(to right, #60a5fa, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.93rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a:hover {
+      color: #f9fafb;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #2563eb, #f97316);
+      border-radius: 999px;
+      transition: width 0.18s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #eff6ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.6);
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, #1d4ed8, #4338ca);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 18px;
+      height: 2px;
+      background: #e5e7eb;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.1rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.93rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0.3rem auto 0;
+    }
+
+    /* ---------- Hero ---------- */
+    #home {
+      padding: 3.8rem 0 3.4rem;
+      background: radial-gradient(circle at top, #1d4ed8 0, #020617 55%);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 0.78rem;
+      color: #c7d2fe;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-tag span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(to right, #60a5fa, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #eff6ff;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.7);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #4338ca);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.7rem 1.3rem;
+      font-size: 0.92rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(191, 219, 254, 0.95);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Hero visual card */
+    .hero-card {
+      background: radial-gradient(circle at top left, #2563eb22, #020617 60%);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(30, 64, 175, 0.7);
+      padding: 1.3rem;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.9);
+      font-size: 0.86rem;
+    }
+
+    /* NEW: hero image inside card */
+    .hero-image {
+      margin-bottom: 0.9rem;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      border: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-card-badge {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.18);
+      border: 1px solid rgba(129, 140, 248, 0.8);
+      color: #bfdbfe;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .course-highlight {
+      border-radius: 0.9rem;
+      padding: 0.9rem;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      border: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .course-highlight h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .course-highlight p {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .course-badge {
+      margin-top: 0.4rem;
+      font-size: 0.72rem;
+      display: inline-flex;
+      gap: 0.3rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(129, 140, 248, 0.8);
+    }
+
+    .hero-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .hero-card-item {
+      border-radius: 0.7rem;
+      padding: 0.45rem 0.65rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.7rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .hero-pill {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 1);
+    }
+
+    /* ---------- About ---------- */
+    #about {
+      background: #020617;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    #about p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    .about-chip {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--muted);
+    }
+
+    .about-card {
+      border-radius: 1.2rem;
+      padding: 1.3rem 1.25rem 1.4rem;
+      background: radial-gradient(circle at top left, #2563eb20, #020617 60%);
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .about-card strong {
+      color: #e5e7eb;
+    }
+
+    /* ---------- Courses / Features ---------- */
+    #courses {
+      background: #020617;
+      border-top: 1px solid var(--border);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .course-card {
+      border-radius: 1rem;
+      padding: 1rem 1rem 1.2rem;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+      font-size: 0.9rem;
+    }
+
+    .course-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(30, 64, 175, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.7rem;
+      font-size: 1.1rem;
+    }
+
+    .course-card h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .course-card p {
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .course-meta {
+      font-size: 0.78rem;
+      color: #cbd5f5;
+    }
+
+    /* ---------- Pricing (kept for future if needed) ---------- */
+    #pricing {
+      background: #020617;
+      border-top: 1px solid var(--border);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .plan-card {
+      border-radius: 1.1rem;
+      padding: 1.2rem 1.1rem 1.4rem;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 0.95);
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .plan-card.featured {
+      background: radial-gradient(circle at top left, #2563eb25, #020617 60%);
+      border-color: rgba(37, 99, 235, 0.9);
+      box-shadow: 0 24px 65px rgba(37, 99, 235, 0.55);
+    }
+
+    .plan-badge {
+      align-self: flex-end;
+      font-size: 0.7rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.8);
+      background: rgba(37, 99, 235, 0.16);
+      color: #bfdbfe;
+    }
+
+    .plan-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .plan-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .plan-price span {
+      font-size: 0.7rem;
+      margin-left: 0.25rem;
+      color: var(--muted);
+    }
+
+    .plan-desc {
+      color: var(--muted);
+    }
+
+    .plan-list {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+
+    .plan-list li {
+      display: flex;
+      gap: 0.35rem;
+      align-items: flex-start;
+      margin-bottom: 0.3rem;
+      font-size: 0.82rem;
+    }
+
+    .plan-list li::before {
+      content: "✔";
+      font-size: 0.75rem;
+      color: #22c55e;
+      margin-top: 0.1rem;
+    }
+
+    .plan-cta {
+      margin-top: auto;
+    }
+
+    .plan-cta button {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .plan-card.featured .plan-cta button {
+      border-color: rgba(37, 99, 235, 0.9);
+      background: rgba(37, 99, 235, 0.16);
+    }
+
+    /* ---------- FAQ ---------- */
+    #faq {
+      background: #020617;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .faq-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .faq-item {
+      border-radius: 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 0.92rem;
+    }
+
+    .faq-answer {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .faq-note {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    /* ---------- Contact + Form ---------- */
+    #contact {
+      background: #020617;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-text {
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.45rem;
+      color: #e5e7eb;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .contact-badge span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .form-card {
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.4rem 1.6rem;
+      background: radial-gradient(circle at top left, #2563eb20, #020617 60%);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 65px rgba(15, 23, 42, 0.98);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.78rem;
+      color: #cbd5f5;
+    }
+
+    .required {
+      color: var(--danger);
+      margin-left: 2px;
+    }
+
+    input,
+    select,
+    textarea {
+      border-radius: 0.6rem;
+      border: 1px solid rgba(51, 65, 85, 1);
+      padding: 0.55rem 0.6rem;
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(148, 163, 184, 0.75);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(37, 99, 235, 0.9);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.55);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      margin-top: 3px;
+    }
+
+    .form-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .form-submit {
+      margin-top: 0.2rem;
+    }
+
+    .form-submit button {
+      border-radius: 999px;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #eff6ff;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.8);
+    }
+
+    .form-submit button:hover {
+      background: linear-gradient(135deg, #1d4ed8, #4338ca);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border);
+      background: #020617;
+      padding: 1.2rem 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .courses-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        right: 4%;
+        background: #020617;
+        border-radius: 0.9rem;
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.9rem;
+        box-shadow: 0 22px 55px rgba(15, 23, 42, 1);
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .courses-grid,
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-icon">S</div>
+        <span>SkillSpark</span>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Enroll Now
+      </button>
+
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <div class="hero-tag">
+          <span></span> New batch starting soon • Live & recorded
+        </div>
+
+        <h1>
+          Learn real-world tech skills<br />
+          with <span>SkillSpark</span>.
+        </h1>
+
+        <p>
+          Project-based online courses in web development, data science and UI/UX.
+          Learn from mentors, build your portfolio and get job-ready skills.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Get free counselling
+          </button>
+          <button class="btn-outline" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+            View all courses
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span>⏱ Lifetime access to recordings</span>
+          <span>👨‍🏫 1:1 mentor support</span>
+          <span>📜 Completion certificate</span>
+        </div>
+      </div>
+
+      <!-- Hero visual card with image -->
+      <aside class="hero-card" aria-hidden="true">
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1555066931-bf19f8fd1085?auto=format&fit=crop&w=800&q=80"
+            alt="Students learning online"
+          />
+        </div>
+
+        <div class="hero-card-header">
+          <div class="hero-card-title">Today’s Top Cohorts</div>
+          <div class="hero-card-badge">Seats filling fast</div>
+        </div>
+
+        <div class="hero-card-grid">
+          <div class="course-highlight">
+            <h3>Full-Stack Web Bootcamp</h3>
+            <p>HTML, CSS, JS, React & Node.js with 3 real projects.</p>
+            <div class="course-badge">
+              <span>⏱ 12 weeks</span>
+              <span>•</span>
+              <span>Beginner friendly</span>
+            </div>
+          </div>
+
+          <div class="hero-card-list">
+            <div class="hero-card-item">
+              <span>Data Science Essentials</span>
+              <strong>Starts 5 June</strong>
+            </div>
+            <div class="hero-card-item">
+              <span>UI/UX Design Sprint</span>
+              <strong>Starts 12 June</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-footer">
+          <div class="hero-pill">Average placement hike: 45%</div>
+          <span>Join 1,500+ learners worldwide</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">About SkillSpark</div>
+        <h2 class="section-title">Practical learning, zero fluff.</h2>
+        <p class="section-subtitle">
+          Every SkillSpark program is designed to help you build real projects,
+          understand core concepts and feel confident in interviews.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <p>
+            We know how confusing online learning can be — too many videos, not
+            enough guidance. SkillSpark keeps it simple with structured roadmaps,
+            weekly goals and mentor check-ins.
+          </p>
+          <p>
+            You’ll learn by building: landing pages, dashboards, design systems,
+            datasets, and more. Our mentors review your work and share feedback
+            so you always know what to improve.
+          </p>
+
+          <div class="about-highlights">
+            <div class="about-chip">Mentor support on chat & calls</div>
+            <div class="about-chip">Portfolio-ready projects</div>
+            <div class="about-chip">Doubt-clearing live sessions</div>
+            <div class="about-chip">Interview tips & mock rounds</div>
+          </div>
+        </div>
+
+        <aside class="about-card">
+          <p><strong>“We built SkillSpark for learners who are serious about
+            switching or starting a tech career.”</strong></p>
+          <br />
+          <p>
+            Whether you’re a student, fresher or working professional,
+            our programs are flexible enough to fit around your schedule,
+            with weekend live sessions and self-paced content.
+          </p>
+          <br />
+          <p>
+            You don’t need prior coding knowledge for most beginner tracks.
+            All you need is curiosity and consistency — we’ll guide you through the rest.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Popular Programs</div>
+        <h2 class="section-title">Choose the track that matches your goal.</h2>
+        <p class="section-subtitle">
+          Start from scratch or upskill from your current role with focused,
+          outcome-oriented programs.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-icon">🌐</div>
+          <h3>Web Development</h3>
+          <p>
+            Build modern responsive websites and SPAs with HTML, CSS, JavaScript and React.
+          </p>
+          <div class="course-meta">
+            ⏱ 10–12 weeks • Beginner friendly<br />
+            📂 3–4 portfolio projects
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">📊</div>
+          <h3>Data Science</h3>
+          <p>
+            Learn Python, data analysis, visualization and basic ML with real datasets.
+          </p>
+          <div class="course-meta">
+            ⏱ 12 weeks • Intermediate<br />
+            📂 4+ case studies
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🎨</div>
+          <h3>UI / UX Design</h3>
+          <p>
+            Master user research, wireframing and Figma to design clean, usable interfaces.
+          </p>
+          <div class="course-meta">
+            ⏱ 8 weeks • Beginner / Intermediate<br />
+            📂 Portfolio-ready designs
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">FAQs</div>
+        <h2 class="section-title">Answers to common questions.</h2>
+        <p class="section-subtitle">
+          Still unsure? Read below or contact us — we’re happy to clarify anything.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <ul class="faq-list">
+          <li class="faq-item">
+            <div class="faq-question">Do I need prior coding or design experience?</div>
+            <div class="faq-answer">
+              Most beginner tracks start from basics, so you don’t need prior experience.
+              For intermediate batches, we’ll mention the required foundations clearly.
+            </div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-question">How are classes conducted?</div>
+            <div class="faq-answer">
+              We use a mix of live Zoom sessions and recorded content.
+              Recordings are available in your dashboard to watch anytime.
+            </div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-question">Will there be assignments and projects?</div>
+            <div class="faq-answer">
+              Yes. Every module has exercises and projects. Mentors review them
+              in Mentor Plus and Career Pro plans and share detailed feedback.
+            </div>
+          </li>
+        </ul>
+
+        <div class="faq-note">
+          <strong>Need something more specific?</strong><br /><br />
+          You can ask about custom corporate training, college bootcamps or group
+          discounts by filling the contact form below. Our team will respond with
+          a detailed plan, syllabus and quote.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Get in Touch</div>
+        <h2 class="section-title">Talk to a SkillSpark mentor.</h2>
+        <p class="section-subtitle">
+          Fill in a few details and we’ll help you choose the right course,
+          plan and learning path based on your background.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Left content -->
+        <div>
+          <p class="contact-text">
+            Not sure where to start, or confused between tracks? Just share your
+            current status (student, fresher, working, etc.) and your goal
+            timeline — we’ll suggest a realistic roadmap.
+          </p>
+
+          <ul class="contact-list">
+            <li>📍 SkillSpark, Online-first • India</li>
+            <li>📞 +91-81025-66812</li>
+            <li>✉ hello@skillspark.example</li>
+          </ul>
+
+          <div class="contact-badge">
+            <span></span>
+            Average reply time: under 12 hours
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="form-card">
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91-XXXX-XXX-XXX"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+              />
+              <div class="form-hint">
+                We’ll share call details and course info here.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="interest">Interested Course</label>
+              <select id="interest" name="interest">
+                <option value="">Select an option</option>
+                <option value="web">Web Development</option>
+                <option value="data">Data Science</option>
+                <option value="uiux">UI / UX Design</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="background">Your current background</label>
+              <input
+                type="text"
+                id="background"
+                name="background"
+                placeholder="e.g. 2nd year B.Tech, fresher, working in support, etc."
+              />
+            </div>
+
+            <div class="form-group full">
+              <label for="message">What do you want to achieve?</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Share your goals, timeline and any questions you have..."
+              ></textarea>
+            </div>
+
+            <div class="form-group full">
+              <div class="checkbox-row">
+                <input type="checkbox" id="updates" name="updates" />
+                <label for="updates">
+                  I’m okay with receiving course updates, offers and learning tips on email / WhatsApp.
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group full form-footer">
+              <div class="form-submit">
+                <button type="submit">Submit enquiry</button>
+              </div>
+              <div>
+                By submitting this form you allow SkillSpark mentors to contact
+                you regarding course recommendations and upcoming batches.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> SkillSpark. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Small JS -->
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("mobile-open");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

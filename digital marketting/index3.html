@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Marketing Workshop — Grow & Learn</title>
+  <meta name="description" content="Interactive responsive single-page site for a Digital Marketing Workshop — courses, FAQs, schedule and contact form." />
+
+  <style>
+    :root{
+      --bg:#071129;
+      --card:#061626;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --accent-2:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1200px;
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#031228 0%,#071129 40%);color:#e6eef6}
+    a{color:inherit;text-decoration:none}
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:40px 24px}
+
+    /* Navigation */
+    header{position:fixed;left:0;right:0;top:12px;z-index:60;backdrop-filter: blur(6px);}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;padding:10px 20px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border-radius:12px;display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 18px rgba(12,20,30,0.6)}
+    nav ul{display:flex;gap:14px;list-style:none;margin-left:20px}
+    nav a{padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+    .cta{margin-left:auto}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:10px;color:#02121a;font-weight:700}
+
+    /* Hero */
+    .hero{min-height:78vh;display:grid;align-items:center;padding-top:80px}
+    .hero-grid{display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:center}
+    .eyebrow{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;color:var(--muted);font-weight:700}
+    h1{font-size:clamp(28px,5vw,48px);line-height:1.02;margin:12px 0}
+    p.lead{color:var(--muted);max-width:54ch}
+
+    .hero-ctas{display:flex;gap:12px;margin-top:18px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+
+    /* HERO IMAGE PANEL */
+    .hero-visual{position:relative;background:linear-gradient(180deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06));border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+    .mock{height:320px;border-radius:10px;background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1400&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:inset 0 -40px 80px rgba(2,6,23,0.6)}
+    .stats{display:flex;gap:12px}
+    .stat{flex:1;background:var(--glass);padding:10px;border-radius:8px;text-align:center}
+    .stat b{display:block;font-size:18px}
+    .muted{color:var(--muted)}
+
+    section{padding:80px 0}
+    .section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .section-head h2{margin:0}
+    .grid{display:grid;gap:18px}
+
+    .about-grid{grid-template-columns:1fr 420px}
+    .about p{color:var(--muted)}
+
+    /* Courses */
+    .courses-grid{grid-template-columns:repeat(3,1fr)}
+    .course{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .35s, box-shadow .35s}
+    .course:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .course h3{margin:12px 0}
+    .pill{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:700}
+
+    /* FAQ */
+    .faq .item{border-radius:10px;background:rgba(255,255,255,0.02);padding:12px;border:1px solid rgba(255,255,255,0.03)}
+    .q{display:flex;justify-content:space-between;cursor:pointer}
+    .ans{max-height:0;overflow:hidden;transition:max-height .32s ease}
+
+    /* Contact */
+    .contact-grid{grid-template-columns:1fr 420px}
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:var(--text);min-width:0}
+    textarea{min-height:140px}
+    .form-note{color:var(--muted);font-size:13px}
+
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .courses-grid{grid-template-columns:repeat(2,1fr)}
+      header{top:8px}
+    }
+    @media (max-width:640px){
+      nav ul{display:none}
+      .hero{padding-top:110px}
+      .courses-grid{grid-template-columns:1fr}
+      .logo{width:40px;height:40px}
+      .container{padding:20px}
+    }
+
+    .fade-in{opacity:0;transform:translateY(8px);transition:all .6s ease}
+    .fade-in.visible{opacity:1;transform:none}
+
+    .wave{display:block;width:100%;height:48px;margin-top:-6px;fill:rgba(255,255,255,0.03)}
+
+    input:focus,textarea:focus,button:focus{outline:2px solid rgba(6,182,212,0.12);outline-offset:3px}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="logo">DM</div>
+      <div>
+        <div style="font-weight:700">DM Workshop</div>
+        <div style="font-size:12px;color:var(--muted)">Grow. Learn. Launch.</div>
+      </div>
+    </div>
+
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta"><a class="btn" href="#contact">Join a Cohort</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="hero container" id="hero">
+    <div class="hero-grid">
+
+      <div>
+        <span class="eyebrow">Live • Hands-on • Certificate</span>
+        <h1 class="fade-in">Digital Marketing Workshop — Practical skills to launch your first campaign</h1>
+        <p class="lead fade-in">A compact, project-based workshop covering SEO, Ads, Content Strategy, Analytics and Growth Hacking.</p>
+
+        <div class="hero-ctas fade-in">
+          <a class="btn" href="#contact">Reserve Spot</a>
+          <a class="pill" href="#courses">View Courses</a>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:12px;align-items:center" class="fade-in">
+          <div class="card" style="display:flex;gap:12px;align-items:center;padding:10px">
+            <div style="width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700">A</div>
+            <div>
+              <div style="font-weight:700">8 weeks</div>
+              <div class="muted" style="font-size:13px">Live sessions + recordings</div>
+            </div>
+          </div>
+
+          <div class="card" style="display:flex;gap:12px;align-items:center;padding:10px">
+            <div style="width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700">C</div>
+            <div>
+              <div style="font-weight:700">Hands-on Projects</div>
+              <div class="muted" style="font-size:13px">Campaign + Analytics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image Panel -->
+      <aside class="hero-visual card fade-in">
+        <div class="mock" role="img" aria-label="Workshop preview"></div>
+
+        <div class="stats">
+          <div class="stat"><b>+1.2K</b><span class="muted">graduates</span></div>
+          <div class="stat"><b>90%</b><span class="muted">job uplift</span></div>
+          <div class="stat"><b>100+</b><span class="muted">projects</span></div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none">
+    <path d="M0,24 C200,64 400,0 720,24 C1040,48 1240,12 1440,32 L1440 48 L0 48 Z"></path>
+  </svg>
+
+</main>
+
+</body>
+</html>

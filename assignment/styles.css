@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdf6e3; /* Soft cream base */
+  color: #3e3e3e;
+}
+
+.hero {
+  background-image: url('india-nature.jpg'); /* Replace with actual image path */
+  background-size: cover;
+  background-position: center;
+  color: #fff8dc;
+  text-align: center;
+  padding: 60px 20px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #ffe57f;
+}
+
+.countries {
+  padding: 40px 20px;
+  background-color: #e8f5e9; /* Light green for nature */
+}
+
+.country-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 2px solid #c5e1a5;
+  border-radius: 10px;
+  width: 220px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #ff7043; /* Saffron orange */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #f4511e;
+}
+
+.cta {
+  background-color: #a5d6a7; /* Soft green */
+  text-align: center;
+  padding: 30px 20px;
+  color: #2e7d32;
+}
+
+footer {
+  background-color: #4e342e; /* Deep earthy brown */
+  color: white;
+  text-align: center;
+  padding: 15px;
+}

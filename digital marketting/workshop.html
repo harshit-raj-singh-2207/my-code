@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Dominance Workshop</title>
+  <meta name="description" content="Digital Dominance Workshop — Master SEO, Social Ads, Content & Google Ads in one intensive workshop." />
+
+  <style>
+    :root{
+      --bg-1:#0f0b1a; /* deep */
+      --bg-2:#22102b; /* mid */
+      --accent:#8a4dff; /* purple */
+      --accent-2:#b58cff; /* lighter */
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.04);
+      --muted: rgba(255,255,255,0.65);
+      --glass-border: rgba(255,255,255,0.08);
+      --radius:16px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Container */
+    .container{width:95%;max-width:var(--max-width);margin:0 auto}
+
+    /* NAV */
+    .nav{position:fixed;left:0;right:0;top:16px;z-index:60;display:flex;justify-content:center}
+    .nav-inner{width:95%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:14px;border:1px solid var(--glass-border);backdrop-filter:blur(6px)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{height:44px;width:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b0610}
+    .brand h1{font-size:16px;margin:0}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+    .cta-nav{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0b0610;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    .mobile-toggle{display:none}
+
+    /* HERO */
+    .hero{min-height:88vh;display:flex;align-items:center;padding-top:84px}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center}
+
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:36px;border-radius:20px;border:1px solid var(--glass-border);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+
+    .super{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;color:var(--accent-2);font-weight:700;margin-bottom:14px;font-size:13px}
+    h2{font-size:36px;margin:0 0 12px 0;line-height:1.05}
+    .lead{color:var(--muted);margin-bottom:18px}
+
+    .hero-cta{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0b0610}
+    .btn-ghost{border:1px solid var(--glass-border;background:transparent;color:var(--muted)}
+
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .chip{background:var(--card);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    /* Info card right */
+    .info{padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border)}
+    .info h3{margin:0 0 6px 0}
+    .info p{margin:0;color:var(--muted);font-size:14px}
+    .info .meta{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .meta .m{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);min-width:120px}
+
+    /* COUNTDOWN */
+    .countdown{display:flex;gap:12px;margin-top:18px}
+    .countdown .box{padding:12px 14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));text-align:center}
+    .countdown .num{font-size:20px;font-weight:800}
+    .countdown .label{font-size:12px;color:var(--muted)}
+
+    /* SECTIONS */
+    section{padding:64px 0}
+    section h3.section-title{font-size:22px;margin-bottom:18px}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+
+    /* COURSES / FEATURES */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card-course{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
+    .card-course h4{margin:0 0 6px 0}
+    .card-course p{margin:0;color:var(--muted);font-size:14px}
+
+    /* PRICING */
+    .pricing{display:flex;gap:16px;flex-wrap:wrap}
+    .plan{flex:1;min-width:240px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid var(--glass-border)}
+    .plan .price{font-size:28px;font-weight:800;margin:8px 0}
+
+    /* TESTIMONIALS */
+    .testi{display:flex;gap:14px;overflow:hidden}
+    .testi .slide{min-width:100%;transition:transform 0.5s ease}
+    .testimonial{background:var(--card);padding:18px;border-radius:12px}
+
+    /* FAQ */
+    .faq .q{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);margin-bottom:10px}
+
+    /* FORM */
+    form{display:flex;flex-direction:column;gap:12px}
+    input,select,textarea{padding:12px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:#fff}
+    input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.45)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,0.03)}
+    .small{color:var(--muted);font-size:13px}
+
+    /* RESPONSIVE */
+    @media(max-width:980px){
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .nav-inner{padding:10px}
+    }
+    @media(max-width:640px){
+      .cards{grid-template-columns:1fr}
+      .container{width:96%}
+      .mobile-toggle{display:block}
+      .nav-links{display:none}
+      .hero{padding-top:96px}
+      h2{font-size:28px}
+      .brand h1{font-size:14px}
+    }
+
+    /* small animations */
+    .fade-up{animation:fadeUp .7s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo">DD</div>
+        <div>
+          <h1>Digital Dominance</h1>
+          <p>Workshop • Live • Practical</p>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a class="cta-nav" href="#register">Register</a>
+      </div>
+
+      <div class="mobile-toggle">
+        <button aria-label="menu" onclick="toggleMobile()" class="btn">Menu</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="hero-grid">
+      <div class="hero-card fade-up">
+        <span class="super">LIVE • Hands-on • Certificate</span>
+        <h2>Digital Dominance Workshop — Master SEO, Ads & Content</h2>
+        <p class="lead">An intensive live workshop designed to make you job-ready in digital marketing — SEO, Google Ads, Social Media Ads, Content Strategy, Analytics and growth hacks.</p>
+
+        <div class="hero-cta">
+          <a href="#register" class="btn btn-primary">Reserve Your Seat</a>
+          <a href="#courses" class="btn" style="background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04);">See Curriculum</a>
+        </div>
+
+        <div class="features" aria-hidden="true">
+          <span class="chip">6+ Hours Live</span>
+          <span class="chip">Certificate</span>
+          <span class="chip">Templates Included</span>
+          <span class="chip">Recorded Replay</span>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown" id="countdown">
+          <div class="box"><div class="num" id="days">0</div><div class="label">Days</div></div>
+          <div class="box"><div class="num" id="hours">0</div><div class="label">Hours</div></div>
+          <div class="box"><div class="num" id="mins">0</div><div class="label">Minutes</div></div>
+          <div class="box"><div class="num" id="secs">0</div><div class="label">Seconds</div></div>
+        </div>
+
+      </div>
+
+      <aside class="info fade-up">
+        <h3>Workshop Details</h3>
+        <p>Fast, practical sessions with live examples and templates — for freelancers, founders and marketers.</p>
+
+        <div class="meta">
+          <div class="m"><strong>📅 Date</strong><div class="small">December 20, 2025</div></div>
+          <div class="m"><strong>⏰ Time</strong><div class="small">6:00 PM — 9:00 PM (IST)</div></div>
+          <div class="m"><strong>📍 Mode</strong><div class="small">Online • Zoom</div></div>
+        </div>
+
+        <div style="margin-top:14px">
+          <a href="#register" class="btn btn-primary" style="width:100%;justify-content:center">Register Now</a>
+        </div>
+
+      </aside>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="container">
+    <div class="about-grid">
+      <div>
+        <h3 class="section-title">Why Digital Dominance?</h3>
+        <p class="small">This workshop cuts through theory — you will build live campaigns, analyze real accounts, and leave with templates and a clear growth plan. Trainers are active practitioners with agency experience.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px">
+          <div class="card-course">
+            <h4>Practical Learning</h4>
+            <p class="small">Actionable tasks during the session — no fluff.</p>
+          </div>
+          <div class="card-course">
+            <h4>Live Case Studies</h4>
+            <p class="small">Analyze real ads, SEO audits and scale decisions.</p>
+          </div>
+          <div class="card-course">
+            <h4>Tools & Templates</h4>
+            <p class="small">Campaign templates, brief templates and tracking sheets.</p>
+          </div>
+          <div class="card-course">
+            <h4>Certificate</h4>
+            <p class="small">Receive a completion certificate and job-ready portfolio items.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info">
+        <h3>Who should join?</h3>
+        <p class="small">Beginners, content creators, freelancers, startup founders, and marketing interns who need practical, hands-on skills to deliver results quickly.</p>
+        <div style="margin-top:12px;"><a href="#register" class="btn" style="width:100%;justify-content:center">Join the Waitlist</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses" class="container">
+    <h3 class="section-title">What you'll learn</h3>
+    <div class="cards">
+      <div class="card-course fade-up">
+        <h4>SEO & Content Strategy</h4>
+        <p>Keyword mapping, technical checklist, on-page templates and content calendar.</p>
+      </div>
+      <div class="card-course fade-up">
+        <h4>Google Ads</h4>
+        <p>Search & Display campaigns, bidding strategies and optimisation frameworks.</p>
+      </div>
+      <div class="card-course fade-up">
+        <h4>Social Media Ads</h4>
+        <p>Creative ideation, audience building and scaling with ROAS targets.</p>
+      </div>
+      <div class="card-course fade-up">
+        <h4>Analytics & Tracking</h4>
+        <p>GA4 basics, event tracking, dashboards and attribution ideas.</p>
+      </div>
+      <div class="card-course fade-up">
+        <h4>Growth Hacks</h4>
+        <p>Funnel improvements, conversion rate experiments and retention tactics.</p>
+      </div>
+      <div class="card-course fade-up">
+        <h4>Live Q&amp;A</h4>
+        <p>Ask directly — get feedback on your campaigns and copy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="container">
+    <h3 class="section-title">Pricing & Tickets</h3>
+    <div class="pricing">
+      <div class="plan">
+        <h4>Early Bird</h4>
+        <div class="price">₹999</div>
+        <p class="small">Live session + recordings + templates</p>
+        <div style="margin-top:12px"><a href="#register" class="btn btn-primary">Get Early Bird</a></div>
+      </div>
+
+      <div class="plan">
+        <h4>Standard</h4>
+        <div class="price">₹1499</div>
+        <p class="small">All of Early Bird + extended Q&amp;A</p>
+        <div style="margin-top:12px"><a href="#register" class="btn btn-primary">Buy Standard</a></div>
+      </div>
+
+      <div class="plan">
+        <h4>Team (3 pax)</h4>
+        <div class="price">₹3499</div>
+        <p class="small">Group discounts + private review</p>
+        <div style="margin-top:12px"><a href="#register" class="btn btn-primary">Book Team</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="container">
+    <h3 class="section-title">What people say</h3>
+    <div style="position:relative;overflow:hidden;border-radius:12px">
+      <div class="testi" id="testiTrack" style="width:300%">
+        <div class="slide" style="display:inline-block;width:100%">
+          <div class="testimonial">
+            <p>“Practical, to-the-point and immediately usable tactics. Grew my first campaign to profitability within a week.”</p>
+            <p style="margin-top:10px;font-weight:700">— Aisha, Freelancer</p>
+          </div>
+        </div>
+        <div class="slide" style="display:inline-block;width:100%">
+          <div class="testimonial">
+            <p>“The templates and checklists saved me hours. Trainer answered questions on our real accounts.”</p>
+            <p style="margin-top:10px;font-weight:700">— Rohit, Founder</p>
+          </div>
+        </div>
+        <div class="slide" style="display:inline-block;width:100%">
+          <div class="testimonial">
+            <p>“Loved the live audit and the step-by-step approach. Worth the price!”</p>
+            <p style="margin-top:10px;font-weight:700">— Meera, Marketing Exec</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn" onclick="prevTesti()">Prev</button>
+      <button class="btn" onclick="nextTesti()">Next</button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="container">
+    <h3 class="section-title">Frequently asked questions</h3>
+    <div class="faq">
+      <div class="q">
+        <strong>Do I need prior experience?</strong>
+        <div class="small" style="margin-top:8px">No. We cover basics and give practical tasks. Beginners and intermediates both benefit.</div>
+      </div>
+      <div class="q">
+        <strong>Will recordings be available?</strong>
+        <div class="small" style="margin-top:8px">Yes — all ticket holders get recorded replay and templates.</div>
+      </div>
+      <div class="q">
+        <strong>How will I receive the certificate?</strong>
+        <div class="small" style="margin-top:8px">Certificate is emailed after completion and submission of a small assignment.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER FORM -->
+  <section id="register" class="container">
+    <h3 class="section-title">Register for Digital Dominance</h3>
+    <div style="display:grid;grid-template-columns:1fr 420px;gap:18px">
+      <div class="hero-card">
+        <form id="regForm" onsubmit="return handleSubmit(event)">
+          <div class="form-grid">
+            <input name="name" required placeholder="Full name" />
+            <input name="email" type="email" required placeholder="Email address" />
+          </div>
+          <div class="form-grid">
+            <input name="phone" placeholder="Phone (optional)" />
+            <select name="ticket" required>
+              <option value="early">Early Bird — ₹999</option>
+              <option value="standard">Standard — ₹1499</option>
+              <option value="team">Team (3) — ₹3499</option>
+            </select>
+          </div>
+          <textarea name="notes" rows="4" placeholder="Any questions for the trainer (optional)"></textarea>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:6px">
+            <button class="btn btn-primary" type="submit">Reserve & Pay</button>
+            <button type="button" class="btn" onclick="prefillDemo()">Prefill demo</button>
+          </div>
+          <div id="regMsg" class="small" style="margin-top:8px;color:var(--muted)"></div>
+        </form>
+      </div>
+
+      <aside class="info">
+        <h3>Need help?</h3>
+        <p class="small">Contact us at <strong>hello@digitaldominance.example</strong> or join the WhatsApp group after registration.</p>
+        <div style="margin-top:12px">
+          <strong>Secure payment</strong>
+          <p class="small">We use industry-standard payment gateways. This form is demo-only; replace with gateway integration.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h3 class="section-title">Contact</h3>
+    <div class="contact-grid">
+      <div class="hero-card">
+        <form onsubmit="event.preventDefault();alert('Thank you — we will reply soon.')">
+          <input placeholder="Your name" required />
+          <input placeholder="Your email" required />
+          <input placeholder="Address" required />
+        
+        </form>
+      </div>
+
+      <aside class="info">
+        <h3>Office</h3>
+        <p class="small">Digital Dominance — Remote team</p>
+        <p class="small">Email: hello@digitaldominance.example</p>
+        <p class="small">Follow us on social media for updates.</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div style="display:flex;gap:12px;align-items:center"><div class="logo">DD</div><div><div style="font-weight:700">Digital Dominance</div><div class="small">© 2025</div></div></div>
+      <div class="small">Made with ♥ • Privacy • Terms</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        e.preventDefault();const t=document.querySelector(this.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // Mobile toggle (simple)
+    function toggleMobile(){
+      const nl=document.querySelector('.nav-links');
+      if(nl.style.display==='flex') nl.style.display='none'; else nl.style.display='flex';
+      nl.style.flexDirection='column';nl.style.position='absolute';nl.style.right='18px';nl.style.top='64px';nl.style.background='linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))';nl.style.padding='12px';nl.style.borderRadius='12px';
+    }
+
+    // Countdown to workshop: December 20, 2025 18:00 IST (UTC+5:30) -> convert to UTC
+    const target = new Date('2025-12-20T12:30:00Z').getTime(); // 18:00 IST = 12:30 UTC
+    function updateCountdown(){
+      const now=Date.now();
+      let diff=Math.max(0, target-now);
+      const days=Math.floor(diff/86400000); diff%=86400000;
+      const hours=Math.floor(diff/3600000); diff%=3600000;
+      const mins=Math.floor(diff/60000); diff%=60000;
+      const secs=Math.floor(diff/1000);
+      document.getElementById('days').innerText=days;
+      document.getElementById('hours').innerText=String(hours).padStart(2,'0');
+      document.getElementById('mins').innerText=String(mins).padStart(2,'0');
+      document.getElementById('secs').innerText=String(secs).padStart(2,'0');
+    }
+    updateCountdown(); setInterval(updateCountdown,1000);
+
+    // Testimonial slider
+    let testiIndex=0;
+    function showTesti(){
+      const track=document.getElementById('testiTrack');
+      track.style.transform = `translateX(-${testiIndex*100}%)`;
+    }
+    function nextTesti(){ testiIndex=(testiIndex+1)%3; showTesti(); }
+    function prevTesti(){ testiIndex=(testiIndex+2)%3; showTesti(); }
+
+    // Simple form handler (demo)
+    function handleSubmit(e){
+      e.preventDefault();
+      const f=new FormData(e.target);
+      const name=f.get('name'); const email=f.get('email'); const ticket=f.get('ticket');
+      document.getElementById('regMsg').innerText = `Thanks ${name || ''}! We received your request for ${ticket}. (Demo — replace with payment flow.)`;
+      // simulate redirect to payment or open payment modal
+      return false;
+    }
+    function prefillDemo(){
+      const f=document.getElementById('regForm');
+      f.name.value='Harshit Raj Singh'; f.email.value='harshit@example.com'; f.phone.value='9999999999'; f.ticket.value='early';
+    }
+
+    // small accessibility: focus visible outline
+    document.addEventListener('keydown',function(e){ if(e.key==='Tab') document.body.classList.add('show-focus'); });
+  </script>
+</body>
+</html>

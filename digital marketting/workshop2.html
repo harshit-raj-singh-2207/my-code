@@ -1,0 +1,1997 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Digital Marketing Workshop — Level Up Your Skills</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Join our practical Digital Marketing Workshop to master SEO, ads, content, and analytics with live projects and expert mentors." />
+
+  <!-- Basic SEO -->
+  <meta name="keywords" content="digital marketing workshop, SEO, social media ads, analytics, online marketing course">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Digital Marketing Workshop — Level Up Your Skills">
+  <meta property="og:description" content="Hands-on digital marketing workshop with live projects, expert instructors, and job support.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.webp">
+  <meta property="og:url" content="https://example.com/digital-marketing-workshop">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-elevated: #020617;
+      --bg-card: #020617;
+      --bg-soft: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --accent-strong: #38bdf8;
+      --accent-gradient: linear-gradient(135deg, #38bdf8, #6366f1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --card-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      --radius-xl: 1.5rem;
+      --radius-lg: 1rem;
+      --radius-md: 0.75rem;
+      --nav-height: 4.25rem;
+    }
+
+    /* Light mode (CSS-only toggle using checkbox) */
+    html[data-theme="light"] {
+      --bg-main: #f3f4f6;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --bg-soft: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.1);
+      --accent-strong: #1d4ed8;
+      --accent-gradient: linear-gradient(135deg, #2563eb, #ec4899);
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --text-soft: #6b7280;
+      --border-subtle: rgba(148, 163, 184, 0.6);
+      --card-shadow: 0 16px 35px rgba(15, 23, 42, 0.19);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at top, #020617 0%, #020617 40%, #020617 100%);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0%, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+    }
+
+    /* Layout */
+
+    .page-shell {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(129, 140, 248, 0.20) 0, transparent 50%),
+        radial-gradient(circle at 90% 10%, rgba(8, 47, 73, 0.8) 0, transparent 50%),
+        var(--bg-main);
+    }
+
+    .container {
+      width: min(1120px, 100% - 2.25rem);
+      margin: 0 auto;
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        width: min(1120px, 100% - 5.5rem);
+      }
+    }
+
+    /* Top nav */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.26);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 0.75rem;
+      background: var(--accent-gradient);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
+      font-size: 0.9rem;
+    }
+
+    .brand span {
+      font-size: 0.95rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: none;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    nav li a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    nav li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.1rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent-gradient);
+      transition: width 0.2s ease;
+    }
+
+    nav li a:hover::after,
+    nav li a:focus-visible::after {
+      width: 18px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Theme toggle checkbox hack */
+
+    #themeToggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 999px;
+      padding: 2px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      gap: 4px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .theme-toggle-thumb {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: #fefce8;
+      transform: translateX(2px);
+      transition: transform 0.22s ease;
+      box-shadow: 0 0 8px rgba(250, 250, 250, 0.6);
+    }
+
+    #themeToggle:checked + .theme-toggle .theme-toggle-thumb {
+      transform: translateX(20px);
+    }
+
+    .theme-toggle-icon {
+      font-size: 0.6rem;
+      opacity: 0.8;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      nav ul {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+    }
+
+    /* Buttons */
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.65rem 1.2rem;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #f9fafb;
+      box-shadow: 0 16px 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 18px 38px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.65);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.55);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .btn-sm {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 5.75rem 0 4.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 3.2rem;
+      }
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.12rem 0.4rem 0.12rem 0.18rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      font-weight: 500;
+      font-size: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4.1vw, 2.9rem);
+      line-height: 1.1;
+      margin: 0 0 0.6rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-gradient-text {
+      background: linear-gradient(135deg, #e5e7eb, #38bdf8);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.85rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .hero-meta-pill strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      font-size: 0.74rem;
+      color: var(--text-soft);
+      align-items: center;
+    }
+
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-trust-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.08);
+      color: #bbf7d0;
+      font-size: 0.68rem;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+
+    .hero-media {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 1.1rem;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12) 0, transparent 45%), rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -120%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(129, 140, 248, 0.14) 0, transparent 55%);
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+      z-index: 1;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-chip {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .hero-preview-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      background: radial-gradient(circle at top, #38bdf8, #0f172a);
+    }
+
+    .hero-graph {
+      margin-top: 0.4rem;
+      border-radius: 1rem;
+      padding: 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-graph-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-bars {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 0.25rem;
+      align-items: flex-end;
+    }
+
+    .hero-bar {
+      width: 100%;
+      border-radius: 999px 999px 0 0;
+      background: var(--accent-gradient);
+      box-shadow: 0 6px 14px rgba(56, 189, 248, 0.55);
+      transform-origin: bottom;
+      animation: barPulse 3s ease-in-out infinite;
+    }
+
+    .hero-bar:nth-child(1) { height: 24px; animation-delay: -0.2s; }
+    .hero-bar:nth-child(2) { height: 36px; animation-delay: -0.6s; }
+    .hero-bar:nth-child(3) { height: 48px; animation-delay: -0.3s; }
+    .hero-bar:nth-child(4) { height: 32px; animation-delay: -0.7s; }
+    .hero-bar:nth-child(5) { height: 65px; animation-delay: -0.4s; }
+
+    @keyframes barPulse {
+      0%, 100% { transform: scaleY(1); opacity: 0.9; }
+      50% { transform: scaleY(1.12); opacity: 1; }
+    }
+
+    .hero-tagline {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .hero-tagline strong {
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    /* Sections */
+
+    main {
+      padding-bottom: 3rem;
+    }
+
+    section {
+      padding: 2.75rem 0 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 3.5rem 0;
+      }
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+      max-width: 40rem;
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .about-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .bullet-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .about-visual {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18) 0, transparent 60%), rgba(15, 23, 42, 0.95);
+      box-shadow: var(--card-shadow);
+    }
+
+    .about-visual-inner {
+      padding: 1rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .about-tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+      justify-self: flex-start;
+    }
+
+    .about-image-shell {
+      border-radius: 1.15rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: #020617;
+    }
+
+    .about-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.3rem;
+    }
+
+    .about-metric {
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .about-metric strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    /* Curriculum */
+
+    .cards-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.75);
+      position: relative;
+      overflow: hidden;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12) 0, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 42px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 0.9rem;
+      background: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .card-meta {
+      margin-top: 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .badge-pill {
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      background: rgba(22, 163, 74, 0.15);
+      color: #bbf7d0;
+      border: 1px solid rgba(22, 163, 74, 0.4);
+    }
+
+    .curriculum-footer {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* Full syllabus using <details> (no JS) */
+
+    .syllabus-details {
+      margin-top: 1.4rem;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .syllabus-details summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .syllabus-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .syllabus-body {
+      margin-top: 0.6rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .syllabus-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    /* Why / benefits + stats */
+
+    .benefits-layout {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .benefits-layout {
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        align-items: start;
+      }
+    }
+
+    .benefits-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .benefit-card {
+      border-radius: var(--radius-md);
+      padding: 0.9rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+      font-size: 0.86rem;
+    }
+
+    .benefit-title {
+      font-size: 0.9rem;
+      margin: 0 0 0.25rem;
+      color: var(--text-main);
+    }
+
+    .benefit-icon {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .stats-panel {
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2) 0, transparent 55%), rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: var(--card-shadow);
+      font-size: 0.85rem;
+    }
+
+    .stats-grid {
+      margin-top: 0.6rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .stat strong {
+      font-size: 1.1rem;
+      color: var(--accent-strong);
+    }
+
+    .stat span {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* Instructors */
+
+    .instructors-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .instructors-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .instructor-card {
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      text-align: left;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.8);
+    }
+
+    .instructor-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      margin-bottom: 0.6rem;
+    }
+
+    .instructor-name {
+      font-size: 0.92rem;
+      margin: 0 0 0.15rem;
+      color: var(--text-main);
+    }
+
+    .instructor-role {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .instructor-socials {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .social-pill {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Pricing / Schedule */
+
+    .pricing-layout {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 800px) {
+      .pricing-layout {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: start;
+      }
+    }
+
+    .price-card {
+      border-radius: var(--radius-xl);
+      padding: 1.1rem;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2) 0, transparent 50%), rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: var(--card-shadow);
+      font-size: 0.86rem;
+    }
+
+    .price-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-title {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .price-tagline {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .price-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-old {
+      font-size: 0.8rem;
+      text-decoration: line-through;
+      color: var(--text-soft);
+    }
+
+    .price-badge {
+      font-size: 0.74rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.15);
+      color: #bbf7d0;
+      border: 1px solid rgba(22, 163, 74, 0.5);
+    }
+
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.7rem 0 1rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .price-list li {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .schedule-panel {
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .schedule-row strong {
+      color: var(--text-main);
+    }
+
+    /* FAQ (details) */
+
+    .faq-grid {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .faq-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.92);
+      padding: 0.75rem 0.85rem;
+      font-size: 0.84rem;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      color: var(--text-main);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-answer {
+      margin-top: 0.5rem;
+      color: var(--text-soft);
+    }
+
+    .faq-toggle-sign {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    /* Contact / form */
+
+    .contact-layout {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 800px) {
+      .contact-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: start;
+      }
+    }
+
+    .form-card {
+      border-radius: var(--radius-xl);
+      padding: 1.1rem;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: var(--card-shadow);
+      font-size: 0.86rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .form-label {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .required-star {
+      color: #f97373;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      border-radius: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.55rem 0.7rem;
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      font-size: 0.84rem;
+    }
+
+    .form-input:focus-visible,
+    .form-select:focus-visible,
+    .form-textarea:focus-visible {
+      outline: 2px solid transparent;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+    }
+
+    .form-textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .form-helper {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+    }
+
+    .contact-aside {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .contact-aside-block {
+      border-radius: var(--radius-lg);
+      padding: 0.85rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      margin-top: 0.8rem;
+    }
+
+    .contact-aside-block strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--text-main);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.6rem 0 2.2rem;
+      font-size: 0.76rem;
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.96);
+    }
+
+    .footer-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-links,
+    .footer-socials {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      cursor: pointer;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    /* Anchor target offset for sticky nav */
+    section[id] {
+      scroll-margin-top: calc(var(--nav-height) + 1.4rem);
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav" aria-label="Main navigation">
+      <a href="#hero" class="brand">
+        <span class="brand-icon">DM</span>
+        <span>Digital Marketing Workshop</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#curriculum">Curriculum</a></li>
+          <li><a href="#benefits">Why Us</a></li>
+          <li><a href="#instructors">Instructors</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <!-- Theme toggle (visual only – would need JS to actually change data-theme) -->
+        <input type="checkbox" id="themeToggle" aria-hidden="true">
+        <label for="themeToggle" class="theme-toggle" aria-label="Toggle light/dark theme">
+          <span class="theme-toggle-thumb"></span>
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-icon">☀️</span>
+        </label>
+
+        <a href="#pricing" class="btn btn-sm btn-outline nav-cta">Enroll</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-tag">
+            <span class="hero-tag-pill">Next Cohort • Limited Seats</span>
+            <span>Live & Online · Hands-on</span>
+          </div>
+          <h1 class="hero-title">
+            Master <span class="hero-gradient-text">Digital Marketing</span> from scratch to strategy.
+          </h1>
+          <p class="hero-subtitle">
+            Learn SEO, ads, content, and analytics through live projects, code-friendly dashboards, and practical frameworks you can ship immediately.
+          </p>
+
+          <div class="hero-meta-row" aria-label="Schedule and duration">
+            <!-- CHANGE START DATE & DURATION HERE -->
+            <div class="hero-meta-pill">
+              <strong>Start date</strong>
+              <span>August 05, 2026</span>
+            </div>
+            <div class="hero-meta-pill">
+              <strong>Duration</strong>
+              <span>6 weeks · 30 hours</span>
+            </div>
+            <div class="hero-meta-pill">
+              <strong>Format</strong>
+              <span>Weekend live sessions</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <a href="#pricing" class="btn btn-primary">
+              Enroll Now
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#curriculum" class="btn btn-outline">
+              Download Brochure
+            </a>
+          </div>
+
+          <div class="hero-trust" aria-label="Trust indicators">
+            <span class="hero-trust-badge">Only 40 seats per cohort</span>
+            <span class="hero-trust-item">₹XX,XXX · EMIs available</span>
+            <span class="hero-trust-item">Job support & portfolio review</span>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <div class="hero-card-top">
+                <span class="hero-chip">Live campaign analytics</span>
+                <div class="hero-preview-avatar"></div>
+              </div>
+              <div class="hero-graph">
+                <div class="hero-graph-header">
+                  <span>Leads generated</span>
+                  <span>+142% vs last cohort</span>
+                </div>
+                <div class="hero-bars">
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                </div>
+              </div>
+              <p class="hero-tagline">
+                Learn to go from <strong>zero → measurable ROI</strong> with campaigns you actually build in class.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">About the workshop</p>
+          <h2 class="section-title">From fundamentals to full-funnel marketing — in one cohort.</h2>
+          <p class="section-subtitle">
+            Designed for students, creators, and early professionals who want a practical, no-fluff introduction to digital marketing.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <p class="about-body">
+              This cohort-based workshop walks you through the core pillars of digital marketing using real projects:
+              you’ll ship campaigns, read real dashboards, and learn how to make decisions with data — not guesswork.
+            </p>
+
+            <ul class="about-list">
+              <li>
+                <span class="bullet-icon">✓</span>
+                <span>Understand how SEO, paid ads, and content work together to build a growth engine.</span>
+              </li>
+              <li>
+                <span class="bullet-icon">✓</span>
+                <span>Learn to read analytics, create reports, and communicate performance to stakeholders.</span>
+              </li>
+              <li>
+                <span class="bullet-icon">✓</span>
+                <span>Build a portfolio of case studies you can talk about in interviews and client calls.</span>
+              </li>
+              <li>
+                <span class="bullet-icon">✓</span>
+                <span>Get feedback from instructors who run campaigns in the real world — not just theory.</span>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="about-visual">
+            <div class="about-visual-inner">
+              <span class="about-tag">Live, mentor-led learning</span>
+              <div class="about-image-shell">
+                <!-- Sample hero image (replace with your own in /assets) -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbcuE2Gyejq2zbBpF2gq00fKlBx9m7DdutMQ&s"
+                     alt="Team collaborating over digital marketing dashboards"
+                     loading="lazy">
+              </div>
+              <div class="about-metrics">
+                <div class="about-metric">
+                  <strong>50+</strong>
+                  Campaign breakdowns
+                </div>
+                <div class="about-metric">
+                  <strong>3</strong>
+                  Capstone case studies
+                </div>
+                <div class="about-metric">
+                  <strong>1:10</strong>
+                  Mentor to learner ratio
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section id="curriculum">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Curriculum</p>
+          <h2 class="section-title">Modules built around real marketing workflows.</h2>
+          <p class="section-subtitle">
+            Each module combines short concept sprints with hands-on, tool-based implementation.
+          </p>
+        </div>
+
+        <div class="cards-grid" aria-label="Workshop modules">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🔍</div>
+              <div>
+                <h3 class="card-title">Module 1 · SEO Basics</h3>
+                <p>How search works, keyword research, and on-page optimization.</p>
+              </div>
+            </div>
+            <p>Set up your first SEO-ready landing page and learn to think like both a user and a search engine.</p>
+            <div class="card-meta">
+              <span class="badge">4 hours</span>
+              <span class="badge">Beginner friendly</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">📣</div>
+              <div>
+                <h3 class="card-title">Module 2 · Paid Ads & Funnels</h3>
+                <p>Meta & Google Ads, targeting, budgets, and creative testing.</p>
+              </div>
+            </div>
+            <p>Design a simple funnel from ad click to lead capture and understand what metrics actually matter.</p>
+            <div class="card-meta">
+              <span class="badge">6 hours</span>
+              <span class="badge">Intermediate</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">✍️</div>
+              <div>
+                <h3 class="card-title">Module 3 · Content & Social</h3>
+                <p>Content pillars, copywriting, and platform-native strategies.</p>
+              </div>
+            </div>
+            <p>Draft posts, hooks, and content calendars that actually support your campaign goals.</p>
+            <div class="card-meta">
+              <span class="badge">5 hours</span>
+              <span class="badge">All levels</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">📊</div>
+              <div>
+                <h3 class="card-title">Module 4 · Analytics & Reporting</h3>
+                <p>UTMs, dashboards, attribution basics, and reporting.</p>
+              </div>
+            </div>
+            <p>Read dashboards with confidence and build reports that tell a clear story to founders or managers.</p>
+            <div class="card-meta">
+              <span class="badge">4 hours</span>
+              <span class="badge">Intermediate</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🧩</div>
+              <div>
+                <h3 class="card-title">Module 5 · Strategy & Capstone</h3>
+                <p>From scattered tactics to a single, cohesive marketing plan.</p>
+              </div>
+            </div>
+            <p>Put everything together in a capstone case study you can share in portfolios and interviews.</p>
+            <div class="card-meta">
+              <span class="badge">5 hours</span>
+              <span class="badge">Project-based</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Syllabus details -->
+        <details class="syllabus-details">
+          <summary>
+            <span>View full syllabus breakdown</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="syllabus-body">
+            <div class="syllabus-item">
+              <span>Week 1</span>
+              <span>SEO fundamentals, tools setup</span>
+            </div>
+            <div class="syllabus-item">
+              <span>Week 2</span>
+              <span>Ad platforms, audiences, creatives</span>
+            </div>
+            <div class="syllabus-item">
+              <span>Week 3</span>
+              <span>Content systems & social proof</span>
+            </div>
+            <div class="syllabus-item">
+              <span>Week 4</span>
+              <span>Analytics, dashboards, reporting</span>
+            </div>
+            <div class="syllabus-item">
+              <span>Week 5–6</span>
+              <span>Capstone project & reviews</span>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Why this workshop -->
+    <section id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Why this workshop</p>
+          <h2 class="section-title">Everything you need to launch your first campaigns with confidence.</h2>
+          <p class="section-subtitle">
+            We focus on helping you ship work you can actually show — not just slides and buzzwords.
+          </p>
+        </div>
+
+        <div class="benefits-layout">
+          <div class="benefits-grid">
+            <article class="benefit-card">
+              <div class="benefit-icon">🧪</div>
+              <h3 class="benefit-title">Hands-on projects</h3>
+              <p>Work on guided campaigns and dashboards so you learn by doing, not just watching.</p>
+            </article>
+            <article class="benefit-card">
+              <div class="benefit-icon">📜</div>
+              <h3 class="benefit-title">Certificate & portfolio</h3>
+              <p>Earn a completion certificate and build 3+ case studies you can share with recruiters or clients.</p>
+            </article>
+            <article class="benefit-card">
+              <div class="benefit-icon">♾️</div>
+              <h3 class="benefit-title">Lifetime resources</h3>
+              <p>Keep access to templates, checklists, and recorded sessions for future refreshers.</p>
+            </article>
+            <article class="benefit-card">
+              <div class="benefit-icon">👥</div>
+              <h3 class="benefit-title">Small cohort</h3>
+              <p>Limited seats ensure you get time for Q&amp;A, feedback, and career guidance.</p>
+            </article>
+          </div>
+
+          <aside class="stats-panel">
+            <p><strong>By the numbers</strong></p>
+            <div class="stats-grid">
+              <div class="stat">
+                <strong>80%</strong>
+                <span>learners receive interview or freelance support post workshop*</span>
+              </div>
+              <div class="stat">
+                <strong>50+</strong>
+                <span>case studies and examples discussed across modules</span>
+              </div>
+              <div class="stat">
+                <strong>10+</strong>
+                <span>live campaigns and dashboards we walk through together</span>
+              </div>
+            </div>
+            <p class="form-helper" style="margin-top:0.6rem;">*Placement support is guidance-based, not guaranteed jobs.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructors -->
+    <section id="instructors">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Instructors</p>
+          <h2 class="section-title">Learn from marketers who ship campaigns every week.</h2>
+          <p class="section-subtitle">
+            Your instructors combine agency, startup, and freelance experience across multiple industries.
+          </p>
+        </div>
+
+        <div class="instructors-grid" aria-label="Instructor profiles">
+          <article class="instructor-card">
+            <div class="instructor-avatar">
+              <img src="harshit.jpg"
+                   alt="Portrait of instructor A"
+                   loading="lazy">
+            </div>
+            <h3 class="instructor-name">Harshit Raj Singh</h3>
+            <p class="instructor-role">Performance Marketing Lead · SaaS</p>
+            <p>Runs multi-channel campaigns for B2B products, with a focus on ads, funnels, and analytics.</p>
+            <div class="instructor-socials">
+              <span class="social-pill">in</span>
+              <span class="social-pill">X</span>
+            </div>
+          </article>
+
+          <article class="instructor-card">
+            <div class="instructor-avatar">
+              <img src="aadil.jpg"
+                   alt="Portrait of instructor B"
+                   loading="lazy">
+            </div>
+            <h3 class="instructor-name">Md.Aadil Ansari</h3>
+            <p class="instructor-role">Content & Brand Strategist</p>
+            <p>Helps early-stage brands build content systems that actually convert, not just go viral.</p>
+            <div class="instructor-socials">
+              <span class="social-pill">in</span>
+              <span class="social-pill">IG</span>
+            </div>
+          </article>
+
+          <article class="instructor-card">
+            <div class="instructor-avatar">
+              <img src="sumit.jpg"
+                   alt="Portrait of instructor C"
+                   loading="lazy">
+            </div>
+            <h3 class="instructor-name">Sumit Sharma</h3>
+            <p class="instructor-role">Analytics & Growth Consultant</p>
+            <p>Specializes in turning messy data into clean dashboards and clear decisions.</p>
+            <div class="instructor-socials">
+              <span class="social-pill">in</span>
+              <span class="social-pill">YT</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing & Schedule -->
+    <section id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Schedule & Pricing</p>
+          <h2 class="section-title">Secure your seat in the next live cohort.</h2>
+          <p class="section-subtitle">
+            One transparent price, with early-bird discounts and flexible EMIs available.
+          </p>
+        </div>
+
+        <div class="pricing-layout">
+          <article class="price-card" aria-label="Workshop pricing">
+            <div class="price-header">
+              <h3 class="price-title">Complete Workshop Access</h3>
+              <span class="price-badge">Early-bird offer</span>
+            </div>
+            <p class="price-tagline">Includes all modules, live Q&amp;A, capstone review, and lifetime materials access.</p>
+
+            <!-- UPDATE PRICING TEXT HERE -->
+            <div class="price-value">
+              <span>₹XX,XXX</span>
+              <span class="price-old">₹YY,YYY</span>
+            </div>
+            <p class="form-helper">Enroll before <strong>July 20</strong> to lock in the early-bird price.</p>
+
+            <ul class="price-list">
+              <li>
+                <span>✓</span>
+                <span>6 weeks of live sessions + recordings</span>
+              </li>
+              <li>
+                <span>✓</span>
+                <span>3 capstone reviews with instructor feedback</span>
+              </li>
+              <li>
+                <span>✓</span>
+                <span>Templates, checklists, and reporting frameworks</span>
+              </li>
+              <li>
+                <span>✓</span>
+                <span>Community and AMA access for 3 months</span>
+              </li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Enroll in this cohort
+            </a>
+            <p class="form-helper" style="margin-top:0.6rem;">
+              Simple, no-questions-asked refund available until 48 hours after the first session.
+            </p>
+          </article>
+
+          <aside class="schedule-panel" aria-label="Schedule overview">
+            <!-- CHANGE START DATE & TIMES HERE -->
+            <div class="schedule-row">
+              <span>Next batch</span>
+              <strong>Starts August 05, 2026</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Schedule</span>
+              <span>Sat–Sun · 2.5 hours per day</span>
+            </div>
+            <div class="schedule-row">
+              <span>Total duration</span>
+              <span>6 weeks · 30 hours live</span>
+            </div>
+            <div class="schedule-row">
+              <span>Format</span>
+              <span>Zoom + Notion + real dashboards</span>
+            </div>
+            <p class="form-helper" style="margin-top:0.8rem;">
+              Once you enroll, you’ll receive calendar invites, platform links, and a pre-work checklist via email.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">FAQ</p>
+          <h2 class="section-title">Questions people ask before enrolling.</h2>
+          <p class="section-subtitle">
+            If you don’t see your question here, you can always reach out using the contact form below.
+          </p>
+        </div>
+
+        <div class="faq-grid" aria-label="Frequently asked questions">
+          <details class="faq-item">
+            <summary>
+              <span>Do I need prior marketing experience?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              No. We start from the fundamentals and move towards intermediate topics. Basic comfort with using a laptop and the internet is enough.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>What tools will we use?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              We’ll use live dashboards from Google Analytics, Meta Ads Manager, Google Ads, and simple spreadsheets/Notion templates for planning content.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Will I get recordings?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              Yes. All sessions are recorded and available to you for a limited time after the cohort ends, along with key resources and templates.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Do you provide a certificate?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              Yes. Learners who complete the capstone project receive a digital certificate that can be shared on LinkedIn and portfolios.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Is job placement guaranteed?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              We do not guarantee jobs. However, we offer guidance, portfolio reviews, and interview preparation support to help you stand out.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Can I get a refund?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              Yes. You can request a full refund up to 48 hours after the first live session if you feel the workshop isn’t the right fit.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>What if I miss a session?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              You can catch up using the recordings and resources, and post your questions in the community or weekly office hours.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Will this help if I’m a freelancer?</span>
+              <span class="faq-toggle-sign">＋</span>
+            </summary>
+            <div class="faq-answer">
+              Absolutely. We cover how to talk about your work, structure case studies, and communicate results — critical skills for freelancers.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Contact & enrollment</p>
+          <h2 class="section-title">Have questions or ready to join?</h2>
+          <p class="section-subtitle">
+            Share a few details and we’ll reach out with enrollment steps, batch options, and payment links.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <article class="form-card">
+            <form aria-label="Enrollment interest form">
+              <!-- Honeypot field (spam protection) -->
+              <div class="honeypot">
+                <label>Leave this field empty:
+                  <input type="text" name="website">
+                </label>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="fullName" class="form-label">Full name <span class="required-star">*</span></label>
+                  <input id="fullName"
+                         class="form-input"
+                         type="text"
+                         name="fullName"
+                         required
+                         autocomplete="name"
+                         placeholder="Your name">
+                </div>
+
+                <div class="form-field">
+                  <label for="email" class="form-label">Email <span class="required-star">*</span></label>
+                  <input id="email"
+                         class="form-input"
+                         type="email"
+                         name="email"
+                         required
+                         autocomplete="email"
+                         placeholder="you@example.com">
+                </div>
+
+                <div class="form-field">
+                  <label for="phone" class="form-label">Phone (optional)</label>
+                  <input id="phone"
+                         class="form-input"
+                         type="tel"
+                         name="phone"
+                         autocomplete="tel"
+                         placeholder="+91-XXXXXXXXXX">
+                  <span class="form-helper">We’ll only contact you for workshop updates.</span>
+                </div>
+
+                <div class="form-field">
+                  <label for="interest" class="form-label">Course interest</label>
+                  <select id="interest" name="interest" class="form-select">
+                    <option value="full">Full workshop (recommended)</option>
+                    <option value="seo">SEO only</option>
+                    <option value="ads">Ads & funnels only</option>
+                    <option value="content">Content & social only</option>
+                    <option value="analytics">Analytics only</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="batchDate" class="form-label">Preferred batch start date</label>
+                  <input id="batchDate"
+                         class="form-input"
+                         type="date"
+                         name="batchDate">
+                </div>
+
+                <div class="form-field">
+                  <label for="message" class="form-label">Anything specific you want to learn?</label>
+                  <textarea id="message"
+                            name="message"
+                            class="form-textarea"
+                            placeholder="Share your background, goals, or any questions."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top:0.4rem;">
+                  Submit & get details
+                </button>
+
+                <p class="form-helper">
+                  Note: This form is front-end only. Connect it to your backend, Netlify Forms, or EmailJS to start receiving submissions.
+                </p>
+              </div>
+            </form>
+          </article>
+
+          <aside class="contact-aside">
+            <div class="contact-aside-block">
+              <strong>How enrollment works</strong>
+              <p>
+                Once you submit the form, we’ll email you available batch options, payment links, and a short pre-work guide.
+              </p>
+            </div>
+
+            <div class="contact-aside-block">
+              <strong>Need help deciding?</strong>
+              <p>
+                If you’re not sure whether this is the right workshop for you, mention that in your message. We’ll be honest about whether it’s a fit.
+              </p>
+            </div>
+
+            <div class="contact-aside-block">
+              <strong>Preferred contact</strong>
+              <p>Email: hello@yourworkshop.com<br>Instagram: @yourworkshophandle</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <div class="brand">
+          <span class="brand-icon">DM</span>
+          <span>Digital Marketing Workshop</span>
+        </div>
+        <p style="margin-top:0.4rem;">© 2026 DMWorkshop. All rights reserved.</p>
+      </div>
+
+      <div>
+        <div class="footer-links">
+          <a href="#about" class="footer-link">About</a>
+          <a href="#curriculum" class="footer-link">Curriculum</a>
+          <a href="#pricing" class="footer-link">Pricing</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+        </div>
+        <div class="footer-socials" style="margin-top:0.4rem;">
+          <span class="footer-link">LinkedIn</span>
+          <span class="footer-link">Instagram</span>
+          <span class="footer-link">YouTube</span>
+          <span class="footer-link">Terms</span>
+          <span class="footer-link">Privacy</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
